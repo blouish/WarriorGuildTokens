@@ -1,0 +1,356 @@
+{
+  "Variables": [
+    {
+      "name": "animate",
+      "value": "Animate",
+      "type": "ACTION"
+    },
+    {
+      "name": "false",
+      "value": "False",
+      "type": "BOOL"
+    },
+    {
+      "name": "mith helm",
+      "value": "helm",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "magic anim",
+      "value": "Magical Animator",
+      "type": "GO"
+    },
+    {
+      "name": "inv mith",
+      "value": "mith",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "armor",
+      "value": "Mithril",
+      "type": "GI"
+    },
+    {
+      "name": "Mithril body",
+      "value": "platebody",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "mith leg",
+      "value": "platelegs",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "take",
+      "value": "Take",
+      "type": "ACTION"
+    },
+    {
+      "name": "token",
+      "value": "token",
+      "type": "GI"
+    },
+    {
+      "name": "true",
+      "value": "True",
+      "type": "BOOL"
+    },
+    {
+      "name": "inv token",
+      "value": "token",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "hp",
+      "value": "40",
+      "type": "NUMBER"
+    },
+    {
+      "name": "eat",
+      "value": "Eat",
+      "type": "ACTION"
+    },
+    {
+      "name": "monkfish",
+      "value": "Monkfish",
+      "type": "SPRITE_ITEM"
+    },
+    {
+      "name": "armour",
+      "value": "Armour",
+      "type": "NPC"
+    }
+  ],
+  "NodeCollection": [
+    {
+      "name": "StartCondition",
+      "base": {
+        "id": "dda71951-89be-47e1-8b34-4f25d4b663b1",
+        "position": {
+          "x": "-478.0",
+          "y": "87.0"
+        },
+        "flowTasks": {
+          "success": "a90c8a82-05c9-4901-8515-31b9c66348e9"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "GameMode": "OSRS",
+        "IntervalLow": 100.0,
+        "IntervalHigh": 1000.0
+      }
+    },
+    {
+      "name": "InventoryCondition",
+      "base": {
+        "id": "a90c8a82-05c9-4901-8515-31b9c66348e9",
+        "position": {
+          "x": "-500.0",
+          "y": "373.0"
+        },
+        "flowTasks": {
+          "failure": "5b3b277d-debe-48a1-9f75-6d5cf38e22eb"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "ItemValues": [
+          "inv mith"
+        ],
+        "ItemRegex": true,
+        "Condition": "Contains all of:"
+      }
+    },
+    {
+      "name": "InteractionAction",
+      "base": {
+        "id": "3df3c898-a42c-4d99-823c-6ac5aa02e511",
+        "position": {
+          "x": "396.0",
+          "y": "179.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "bool3": false,
+          "bool4": false,
+          "bool5": false,
+          "list7": [
+            "Take"
+          ],
+          "within": "",
+          "type": "GOQuery"
+        }
+      },
+      "variables": {
+        "Condition": "Ground item",
+        "ItemValues": [
+          "armor",
+          "token"
+        ],
+        "ItemRegex": true,
+        "ActionValues": [
+          "take"
+        ],
+        "ActionRegex": false
+      }
+    },
+    {
+      "name": "CalculationCondition",
+      "base": {
+        "id": "5b3b277d-debe-48a1-9f75-6d5cf38e22eb",
+        "position": {
+          "x": "-68.0",
+          "y": "201.0"
+        },
+        "flowTasks": {
+          "success": "3df3c898-a42c-4d99-823c-6ac5aa02e511",
+          "failure": "7790105f-1427-4081-ae5c-7daa769bdd18"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "bool3": false,
+          "bool4": false,
+          "bool5": false,
+          "within": "",
+          "type": "GOQuery"
+        }
+      },
+      "variables": {
+        "Values": [
+          "true"
+        ],
+        "ValueRegex": false,
+        "Comparators": [
+          "armor",
+          "token"
+        ],
+        "CompRegex": true,
+        "Condition": "Reachable",
+        "Type": "Ground Item"
+      }
+    },
+    {
+      "name": "PlayerCondition",
+      "base": {
+        "id": "e8cd2c25-3c2e-44f1-9968-6e492897e1aa",
+        "position": {
+          "x": "427.0",
+          "y": "722.0"
+        },
+        "flowTasks": {
+          "success": "d953b302-a399-4678-ab42-8e70ac18c239",
+          "failure": "d1800e2f-7b39-4faa-aab0-fba576be1794"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "within": "",
+          "MinLvl": "",
+          "MaxLvl": "",
+          "type": "NpcQuery"
+        }
+      },
+      "variables": {
+        "Values": [],
+        "ValueRegex": false,
+        "Condition": "Is being attacked:"
+      }
+    },
+    {
+      "name": "StatusCondition",
+      "base": {
+        "id": "d953b302-a399-4678-ab42-8e70ac18c239",
+        "position": {
+          "x": "821.0",
+          "y": "527.0"
+        },
+        "flowTasks": {
+          "success": "be258b56-b0ee-4a77-a731-7441dc2854ae"
+        },
+        "delayMultiplier": 1.0
+      },
+      "variables": {
+        "Comparator": "hp",
+        "Condition": "Less than (\u003c)",
+        "Type": "Health (amount)"
+      }
+    },
+    {
+      "name": "InteractionAction",
+      "base": {
+        "id": "be258b56-b0ee-4a77-a731-7441dc2854ae",
+        "position": {
+          "x": "1287.0",
+          "y": "509.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "list5": [
+            "Eat"
+          ],
+          "type": "InventoryQuery"
+        }
+      },
+      "variables": {
+        "Condition": "Inventory",
+        "ItemValues": [
+          "monkfish"
+        ],
+        "ItemRegex": true,
+        "ActionValues": [
+          "eat"
+        ],
+        "ActionRegex": true
+      }
+    },
+    {
+      "name": "SpecialInteractionAction",
+      "base": {
+        "id": "d1800e2f-7b39-4faa-aab0-fba576be1794",
+        "position": {
+          "x": "864.0",
+          "y": "830.0"
+        },
+        "flowTasks": {},
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "bool0": false,
+          "bool1": false,
+          "bool2": false,
+          "bool3": false,
+          "TypeList": [],
+          "within": "",
+          "results": "",
+          "type": "GOQuery"
+        }
+      },
+      "variables": {
+        "Values": [
+          "magic anim"
+        ],
+        "ValueRegex": false,
+        "Comparators": [],
+        "CompRegex": false,
+        "Condition": "Click",
+        "Type": "Game Object",
+        "ClickRegex": false,
+        "spellName": ""
+      }
+    },
+    {
+      "name": "CalculationCondition",
+      "base": {
+        "id": "7790105f-1427-4081-ae5c-7daa769bdd18",
+        "position": {
+          "x": "-18.0",
+          "y": "658.0"
+        },
+        "flowTasks": {
+          "success": "e8cd2c25-3c2e-44f1-9968-6e492897e1aa",
+          "failure": "e8cd2c25-3c2e-44f1-9968-6e492897e1aa"
+        },
+        "delayMultiplier": 1.0,
+        "queryData": {
+          "within": "",
+          "type": "NpcQuery"
+        }
+      },
+      "variables": {
+        "Values": [
+          "true"
+        ],
+        "ValueRegex": false,
+        "Comparators": [
+          "armour"
+        ],
+        "CompRegex": true,
+        "Condition": "Reachable",
+        "Type": "NPC"
+      }
+    }
+  ],
+  "BotCategory": "OTHER",
+  "inventoryData": {},
+  "internalData": {
+    "Mouse multiplier": 1.0,
+    "Mouse path": "MLP_PATH_GENERATOR",
+    "Disable advanced": false
+  }
+}
